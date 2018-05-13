@@ -12,13 +12,13 @@ console.log('command', command);
 console.log('Yargs', argv);
 
 if (command === 'add') {
-  console.log('Adding new note.');
+    notes.addNote(argv.title, argv.body);
 } else if (command === 'list') {
-  console.log('Listing all notes.');
+  notes.getAll();
 } else if (command === 'read') {
-  console.log('Reading note.');
+  notes.getNote(argv.title);
 } else if (command === 'remove') {
-  console.log('Removing note.');
+  notes.removeNote(argv.title);
 } else {
   console.log('Command not recognized.');
 }
