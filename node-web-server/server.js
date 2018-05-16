@@ -18,7 +18,10 @@ app.get('/', (request, response) => {
 });
 
 app.get('/about', (req, res) => {
-  res.render('about.hbs');
+  res.render('about.hbs', {
+    pageTitle: 'About Page',
+    currentYear: new Date().getFullYear()
+  });
 });
 
 // bad - send back JSON with errorMessage
