@@ -1,7 +1,9 @@
 const express = require('express');
+const hbs = require('hbs');
 
 const app = express();
 
+app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (request, response) => {
@@ -16,7 +18,7 @@ app.get('/', (request, response) => {
 });
 
 app.get('/about', (req, res) => {
-  res.send('About Page');
+  res.render('about.hbs');
 });
 
 // bad - send back JSON with errorMessage
