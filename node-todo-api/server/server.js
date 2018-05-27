@@ -33,7 +33,8 @@ newTodo.save().then( (doc) => {
 
 
 const otherTodo = new Todo({
-  text: ' Edit this video '
+  text: 123, // this 123 is cached in string by mongoose, hence document passes validation, and results in unexpected error.
+  completed: 0 // similarly this is also coerced to false to pass the validation, and results in unexpected error
 });
 
 otherTodo.save().then( (doc) => {
