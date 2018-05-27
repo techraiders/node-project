@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/TodoApp');
 
-// save new something
+/* save new something
 const Todo = mongoose.model('todo', {
   text: {
     type: String,
@@ -29,7 +29,7 @@ newTodo.save().then( (doc) => {
   console.log('Saved todo ', doc);
 }, (err) => {
   console.log('Unable to save todo.');
-});*/
+});
 
 
 const otherTodo = new Todo({
@@ -41,4 +41,24 @@ otherTodo.save().then( (doc) => {
   console.log(JSON.stringify(doc, undefined, 2));
 }, (err) => {
   console.log('Unable to save ', err);
-} );
+} ); */
+
+// User
+const User = mongoose.model('User', {
+  email: {
+    type: String,
+    required: true,
+    trim: true,
+    minlength: 1
+  }
+});
+
+const user = new User({
+  email: 'hello_navneet@hotmail.com   '
+});
+
+user.save().then( (doc) => {
+  console.log('User saved ', doc);
+}, (e) => {
+  console.log('Unable to save ', e);
+});
