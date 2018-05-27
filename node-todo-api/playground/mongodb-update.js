@@ -9,13 +9,13 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
 
   var db = client.db('TodoApp');
 
-  db.collection('Todos').findOneAndUpdate({
-    _id: new ObjectID('5b0aa1f8003197a8a7cf08ab')
+  db.collection('Users').findOneAndUpdate({
+    _id: new ObjectID('5b0a9e2f003197a8a7cf0773')
   }, {
     // $set is an update operator
     // we can't update without operators
-    $set: {
-      completed: true
+    $inc: {
+      age: -1
     }
   }, {
     returnOriginal: false
